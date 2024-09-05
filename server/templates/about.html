@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="header-left">
+                {% load static %}
+                <img src="{% static 'images/InternshipCoach.svg' %}" alt="Logo">
+            </div>
+            <nav class="header-center">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/businesses">Opportunities</a></li>
+                    <li><a href="/generator">AI Coach</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <a href="#" class="btn-get-started">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container main-content">
+        <h2 style="color: #88a9c3;">Made for Students, By Students.</h2>
+        <p>Carlos Hsieh, a high school senior, is committed to making the internship process more streamline and less stressful.</p>
+        
+        <h2>Our Story</h2>
+        <p>Founded in 2024, our company has grown from a small startup into a leading player in the industry. Our journey has been fueled by a passion for excellence and a commitment to meeting the needs of our customers.</p>
+        
+
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like to learn more about our services, feel free to reach out to us. We are always here to help.</p>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h3>About Internship Coach</h3>
+                <p>Internship Coach connects students with top companies, helping them gain valuable experience in their chosen field.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/priv_terms">Privacy Policy</a></li>
+                    <li><a href="/priv_terms">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Email: thelograrproject@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Internship Coach. All rights reserved.</p>
+            <nav>
+                <ul>
+                    <li><a href="https://www.tiktok.com/@thelograrproject">Tiktok</a></li>
+                    <li><a href="https://www.instagram.com/thelograrproject/">Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/company/thelograrproject">LinkedIn</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

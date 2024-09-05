@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Coach</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="header-left">
+                <img src="{% static 'images/InternshipCoach.svg' %}" alt="Logo">
+            </div>
+            <nav class="header-center">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/businesses">Opportunities</a></li>
+                    <li><a href="/generator">AI Coach</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <a href="#link-heading" id="get-started"class="btn-get-started">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text" class="slide-in">
+            <h2>The Best Internship Database for Students</h2>
+            <p>Find student opportunities and draft professional emails with <span style="color: #3a4d6b;">InternshipCoach</span></p>
+            
+            <a href="#" class="btn-get-started">Get Started</a>
+        </div>
+        <div class="hero-image">
+            <img src="{% static 'images/students.jpg' %}" alt="Students Image">
+        </div>
+    </section>
+    <section class="getting-started" id="link-heading">
+        <div class="container">
+            
+            <div class="features-content">
+                <div class="start-1">
+                    <a href="/businesses" class="link-heading">
+                        <h3>National Internship Database.<span class="arrow">&#x2192;</span></h3> <!-- Right arrow indicator -->
+                    </a>
+                    <p>Scroll through hundreds of internships and volunteering near you.</p>
+                </div>
+                <div class="start-2">
+                    <a href="/generator" class="link-heading">
+                        <h3>Need an internship? Email them with AI. <span class="arrow">&#x2192;</span></h3> <!-- Right arrow indicator -->
+                    </a>
+                    <p>Use AI to draft an email professionally and secure the internship.</p>
+                </div>
+
+            </div>
+    </section>
+    <section class="features">
+        <div class="container">
+            <div class="features-heading">
+                <h1>Expanding access to opportunity with over</h1>
+                <h1><span style="color: #88a9c3;">80,000 opportunity postings.</span></h1>
+            </div>
+            <div class="features-content">
+                <div class="feature">
+                    <h3>Wide Variety of Student Employment</h3>
+                    <p>From law to construction, explore internships in multiple fields and find the perfect match for your career path.</p>
+                </div>
+                <div class="feature">
+                    <h3>Organizations Across The Nation</h3>
+                    <p>Find small businesses, non-profits, and research labs to help you gain work experience.</p>
+                </div>
+                <div class="feature">
+                    <h3>Personalized Recommendations</h3>
+                    <p>Get personalized internship recommendations based on your skills and preferences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="call-to-action">
+        <div class="container">
+            <h2>Never feel anxious about searching for an internship again.</h2>
+            <p>Join thousands of students and start your journey towards a successful internship today.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h3>About Internship Coach</h3>
+                <p>Internship Coach connects students with top companies, helping them gain valuable experience in their chosen field.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/priv_terms">Privacy Policy</a></li>
+                    <li><a href="/priv_terms">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Email: thelograrproject@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Internship Coach. All rights reserved.</p>
+            <nav>
+                <ul>
+                    <li><a href="https://www.tiktok.com/@thelograrproject">Tiktok</a></li>
+                    <li><a href="https://www.instagram.com/thelograrproject/">Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/company/thelograrproject">LinkedIn</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+    <script>
+        window.addEventListener('load', () => {
+        document.body.classList.add('loaded');});
+        document.querySelector('#get-started').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+    
+            // Scroll to the target element
+            document.querySelector('#link-heading').scrollIntoView({
+                behavior: 'smooth' // Smooth scroll behavior
+            });
+        });
+    </script>
+    
+</body>
+</html>
