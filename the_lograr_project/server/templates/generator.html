@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cold Email AI Generator</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/generator.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="header-left">
+                <img src="{% static 'images/InternshipCoach.svg' %}" alt="Logo">
+            </div>
+            <nav class="header-center">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/businesses">Opportunities</a></li>
+                    <li><a href="/generator">AI Coach</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <a href="#" class="btn-get-started">Get Started</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="sidebar">
+            <form id="text-form" method="POST" action="{% url 'generate' %}">
+                {% csrf_token %}
+                <h1>Ask AI to write a cold email for you.</h1>
+                <div class="form-group">
+                    <label for="preset-prompts">Choose a prompt:</label>
+                    <p>Write me a cold email for a:</p>
+                    <select id="preset-prompts" class="dropdown" name="preset_prompt">
+                        <option value="">Select an option</option>
+                        <option value="Write me a cold email for a medical internship">Medical Internship</option>
+                        <option value="Write me a cold email for a construction internship">Construction Internship</option>
+                        <option value="Write me a cold email for a physical therapy internship">Physical Therapy Internship</option>
+                        <option value="Write me a cold email for a psychology internship">Psychology Internship</option>
+                        <option value="Write me a cold email for a engineering internship">Engineering Internship</option>
+                        <option value="Write me a cold email for a research lab internship">Research Lab Internship</option>
+                        <option value="Write me a cold email for a legal internship">Legal Internship</option>
+                        <option value="Write me a cold email for a sales pitch">Sales Pitch</option>
+                        <!-- Add more preset prompts as needed -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="custom-prompt">Or enter your own prompt:</label>
+                    <input type="text" id="custom-prompt" placeholder="Write me an email requesting an internship for" name="custom_prompt" value="Write me an email requesting an internship for"/>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+            <p id="rate-limit-message" style="color: red; display: none;">To keep InternshipCoach free, you are only allowed 1 request ever 1 minute. Please try again in 1 minute.</p>
+        </div>
+        <div class="content">
+            <div class="chatbox"></div>
+        </div>
+    </div>
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h3>About Internship Coach</h3>
+                <p>Internship Coach connects students with top companies, helping them gain valuable experience in their chosen field.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/priv_terms">Privacy Policy</a></li>
+                    <li><a href="/priv_terms">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Email: thelograrproject@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Internship Coach. All rights reserved.</p>
+            <nav>
+                <ul>
+                    <li><a href="https://www.tiktok.com/@thelograrproject">Tiktok</a></li>
+                    <li><a href="https://www.instagram.com/thelograrproject/">Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/company/thelograrproject">LinkedIn</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+    <script>
+        document.querySelector('#text-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    fetch('{% url "generate" %}', {
+        method: 'POST',
+        body: new FormData(this),
+        headers: {
+            'X-CSRFToken': document.querySelector('[name="csrfmiddlewaretoken"]').value
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            return response.text().then(text => {
+                // Log the raw response text to debug
+                console.error(`HTTP error! Status: ${response.status}`, text);
+
+                if (response.status === 429) {
+                    // Show rate limit message
+                    document.getElementById('rate-limit-message').style.display = 'block';
+                } else {
+                    // Display a generic error message
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+            });
+        }
+        return response.json();
+    })
+    .then(data => {
+        const chatbox = document.querySelector('.chatbox');
+        chatbox.innerHTML = '';  // Clear previous content
+
+        if (data.error) {
+            chatbox.innerHTML = `<p class="error">${data.error}</p>`;
+        } else if (data.response) {
+            chatbox.innerHTML = `
+                <h2>Generated Email:</h2>
+                <div class="response-content">${data.response}</div>
+            `;
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        const chatbox = document.querySelector('.chatbox');
+        chatbox.innerHTML = `<p class="error">An error occurred: ${error.message}</p>`;
+    });
+});
+
+    </script>
+</body>
+</html>

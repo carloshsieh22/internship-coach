@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Business Database</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/business.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="header-left">
+                <img src="{% static 'images/InternshipCoach.svg' %}" alt="Logo">
+            </div>
+            <nav class="header-center">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/businesses">Opportunities</a></li>
+                    <li><a href="/generator">AI Coach</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <a href="#" class="btn-get-started">Get Started</a>
+            </div>
+        </div>
+    </header>
+    <container id="background">
+        <h1>Find Your Dream Opportunity.</h1>
+        <div class='tableauPlaceholder' id='viz1725424916003' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;In&#47;InternshipCoachsDatabase&#47;Sheet2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='InternshipCoachsDatabase&#47;Sheet2' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;In&#47;InternshipCoachsDatabase&#47;Sheet2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1725424916003');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    </container>
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h3>About Internship Coach</h3>
+                <p>Internship Coach connects students with top companies, helping them gain valuable experience in their chosen field.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/priv_terms">Privacy Policy</a></li>
+                    <li><a href="/priv_terms">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Email: thelograrproject@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Internship Coach. All rights reserved.</p>
+            <nav>
+                <ul>
+                    <li><a href="https://www.tiktok.com/@thelograrproject">Tiktok</a></li>
+                    <li><a href="https://www.instagram.com/thelograrproject/">Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/company/thelograrproject">LinkedIn</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+    <script>
+        const BUSINESS_LIST_URL = "{% url 'business_list' %}";
+    </script>
+</body>
+
+</html>
