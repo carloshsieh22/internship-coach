@@ -1,1 +1,1 @@
-web: gunicorn the_lograr_project.wsgi --log-file -
+web: gunicorn server.wsgi --log-file -
