@@ -82,7 +82,8 @@ def generate(request):
     return JsonResponse({'error': 'Invalid request method.'}, status=405)
 
 
-
+def favicon(request):
+    return HttpResponse(status=204)
 def generator_view(request):
     return render(request, 'generator.html')
 def about(request):
