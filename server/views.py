@@ -7,25 +7,6 @@ from django.shortcuts import render
 from .models import Business
 from django.http import JsonResponse
 
-def business_list_view(request):
-    search = request.GET.get('search', '')
-    category = request.GET.get('category', '')
-    location = request.GET.get('location', '')
-
-    # Filter businesses based on query parameters
-    businesses = Business.objects.all()
-    if search:
-        businesses = businesses.filter(name__icontains=search)
-    if category:
-        businesses = businesses.filter(category__icontains=category)
-    if location:
-        businesses = businesses.filter(address__icontains=location)
-
-    # Limit the number of entries to 20
-    businesses = businesses[:20]
-    print(f"Filtered businesses count: {businesses.count()}")
-    return render(request, 'business_list.html', {'businesses': businesses})
-
 genai.configure(api_key=settings.GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-1.5-flash')
 
@@ -82,12 +63,13 @@ def generate(request):
     return JsonResponse({'error': 'Invalid request method.'}, status=405)
 
 
-def favicon(request):
-    return HttpResponse(status=204)
+
 def generator_view(request):
     return render(request, 'generator.html')
 def about(request):
     return render(request, 'about.html')
 def priv_terms(request):
     return render(request, 'priv_terms.html')
+def business_list(request):
+    return render(request, 'business_list.html')
 

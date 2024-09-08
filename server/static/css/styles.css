@@ -1,3 +1,11 @@
+
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+}
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     margin: 0;
@@ -6,22 +14,6 @@ body {
     color: #333;
 }
 
-.container {
-    width: 80%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 30px;
-}
-/* Initial state of the content (hidden) */
-body {
-    opacity: 0;
-    transition: opacity 1s ease-in-out; /* Fade-in duration and easing */
-}
-
-/* Apply animation when the content is fully loaded */
-body.loaded {
-    opacity: 1;
-}
 
 html {
     scroll-behavior: smooth; /* Enables smooth scrolling */
