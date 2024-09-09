@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 import os
 from dotenv import load_dotenv
-ALLOWED_HOSTS = ['internshipcoach.onrender.com', 'www.internshipcoach.onrender.com', 'careercoachai.org', 'www.careercoachai.org',]
+ALLOWED_HOSTS = ['*']
 
 load_dotenv()
 SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -37,9 +37,6 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
-ALLOWED_HOSTS = ["internship-coach.onrender.com", "127.0.0.1"]
-
 
 # Application definition
 
